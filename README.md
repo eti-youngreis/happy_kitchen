@@ -31,7 +31,7 @@ This project is currently in development. Features and functionality are being a
 1. Make sure you have Python 3.7 or higher installed on your system.
 
 2. Clone the repository:
-   `git clone [https://github.com/eti-youngreis/happy_kitchen.git](https://github.com/eti-youngreis/happy_kitchen.git)`
+   `git clone https://github.com/eti-youngreis/happy_kitchen.git` 	
    `cd happy_kitchen`
 
 3. Install the required dependencies:
