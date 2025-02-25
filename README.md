@@ -40,4 +40,4 @@ We welcome contributions to the project! Please create an issue or submit a pull
 
 ## License
 
-This project is distributed under the MIT License. See the `LICENSE` file for more details.
+This project is distributed under the MIT License.
