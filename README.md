@@ -26,13 +26,21 @@
 
 This project is currently in development. Features and functionality are being actively added and refined.
 
-## Installation
+## Installation and Setup
 
-Detailed installation instructions will be provided soon. The project requires Python 3.7 or higher and several dependencies which will be listed in the future.
+1. Make sure you have Python 3.7 or higher installed on your system.
 
----
+2. Clone the repository:
+   `git clone [https://github.com/eti-youngreis/happy_kitchen.git](https://github.com/eti-youngreis/happy_kitchen.git)`
+   `cd happy_kitchen`
 
-Note: This README will be updated with complete installation and setup instructions once they have been thoroughly tested and verified.
+3. Install the required dependencies:
+   `pip install -r requirements.txt`
+
+4. Run the application:
+    `flask --app server.py run`
+
+5. Open a web browser and navigate to `http://localhost:5000` to access the application.
 
 ## Contributing
 
