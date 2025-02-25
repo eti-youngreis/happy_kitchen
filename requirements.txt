@@ -1,0 +1,9 @@
+Flask 
+Flask-Login 
+Flask-SQLAlchemy 
+Flask-WTF 
+matplotlib 
+Pillow 
+python-dotenv
+pyodbc
+python-bidi
