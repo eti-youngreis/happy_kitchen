@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="recipe-form-container">
+    <h2>הוספת מתכון חדש</h2>
+    <form method="POST" action="/submit-recipe" enctype="multipart/form-data" class="recipe-form">
+        <div class="form-group">
+            <label>שם המתכון:</label>
+            <input type="text" name="name" required class="form-input">
+        </div>
+        <div class="form-group selections-row">
+            <div class="select-group">
+                <label>סוג מתכון:</label>
+                <select name="dairy_type" required class="form-input">
+                    <option value="בשרי">בשרי</option>
+                    <option value="חלבי">חלבי</option>
+                    <option value="פרווה">פרווה</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label>סוג מנה:</label>
+                <select name="course_type" required class="form-input">
+                    <option value="מנה עיקרית">מנה עיקרית</option>
+                    <option value="מנה ראשונה">מנה ראשונה</option>
+                    <option value="קינוח">קינוח</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label>רמת קושי:</label>
+                <select name="difficulty" required class="form-input">
+                    <option value="קל">קל</option>
+                    <option value="בינוני">בינוני</option>
+                    <option value="שלישי">קשה</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>תמונת המנה:</label>
+            <input type="file" name="image" accept="image/*" required class="file-input">
+        </div>
+        <div class="form-group">
+            <label>מרכיבים:</label>
+            <textarea name="ingredients" required class="form-textarea"></textarea>
+        </div>
+        <div class="form-group">
+            <label>הוראות הכנה:</label>
+            <textarea name="instructions" required class="form-textarea"></textarea>
+        </div>
+        <div class="form-group">
+            <label>זמן הכנה (בדקות):</label>
+            <input type="number" name="cooking_time" required class="form-input">
+        </div>
+        <button type="submit" class="submit-button">שמור מתכון</button>
+    </form>
+</div>
+{% endblock %}

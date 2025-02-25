@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>סטטיסטיקות מתכונים</h1>
+<div class="graphs">
+    <div class="graph-container">
+        <h2>התפלגות מתכונים</h2>
+        <img src="data:image/png;base64,{{ graph_url_1 }}" alt="התפלגות מתכונים">
+    </div>
+
+    <div class="graph-container">
+        <h2>פעילות משתמשים</h2>
+        <img src="data:image/png;base64,{{ graph_url_2 }}" alt="פעילות משתמשים">
+    </div>
+</div>
+{% endblock %}

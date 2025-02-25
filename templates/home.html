@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="recipes-container">
+    {% if recipes %}
+    <div class="recipes-grid">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+            <div class="recipe-image">
+                <img src="{{ recipe.image_path }}" alt="{{ recipe.name }}">
+            </div>
+            <div class="recipe-
+            content">
+                <h2>{{ recipe.name }}</h2>
+                <div class="recipe-meta">
+                    <span><i class="fas fa-user"></i> {{ recipe.author.username }}</span>
+                    <span><i class="fas fa-utensils"></i> {{ recipe.course_type }}</span>
+                    <span><i class="fas fa-cheese"></i> {{ recipe.dairy_type }}</span>
+                    <span><i class="fas fa-clock"></i> {{ recipe.cooking_time }} דקות</span>
+                </div>
+                <div class="recipe-actions">
+                    <a href="{{ url_for('recipe.recipe', recipe_id=recipe.id) }}" class="view-recipe">צפה במתכון</a>
+                    {% if current_user.is_authenticated and recipe.user_id == current_user.id %}
+                    <a href="{{ url_for('recipe.edit_recipe', recipe_id=recipe.id) }}" class="edit-recipe">ערוך
+                        מתכון</a>
+                    <a href="{{ url_for('recipe.delete_recipe', recipe_id=recipe.id) }}" class="delete-recipe"
+                        onclick="return confirm('האם את.ה בטוח.ה שברצונך למחוק את המתכון?')">מחק מתכון</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-results">
+        <i class="fas fa-search"></i>
+        <h2>לא נמצאו מתכונים</h2>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

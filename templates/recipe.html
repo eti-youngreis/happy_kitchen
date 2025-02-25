@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="recipe-details">
+    <div class="recipe-header">
+        <h1>{{ recipe.name }}</h1>
+        <div class="recipe-meta">
+            <span><i class="fas fa-clock"></i> זמן הכנה: {{ recipe.cooking_time }} דקות</span>
+            <span><i class="fas fa-chart-line"></i> רמת קושי: {{ recipe.difficulty }}</span>
+            <span><i class="fas fa-utensils"></i> סוג מנה: {{ recipe.course_type }}</span>
+            <span><i class="fas fa-cookie"></i> סוג מתכון: {{ recipe.dairy_type }}</span>
+        </div>
+    </div>
+
+    <div class="recipe-image-large">
+        <img src="{{ recipe.image_path }}" alt="{{ recipe.name }}">
+    </div>
+
+    <div class="recipe-section">
+        <h2><i class="fas fa-list"></i> מרכיבים</h2>
+        <div class="recipe-content">
+            {{ recipe.ingredients }}
+        </div>
+    </div>
+
+    <div class="recipe-section">
+        <h2><i class="fas fa-tasks"></i> הוראות הכנה</h2>
+        <div class="recipe-content">
+            {{ recipe.instructions }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

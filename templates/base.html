@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <title>שמח במטבח</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ff6b6b' d='M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z'/></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <i class="fas fa-utensils logo-icon"></i>
+            <h1>שמח במטבח</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="{{ url_for('recipe.home') }}" class="nav-link"><i class="fas fa-home"></i> דף הבית</a>
+            <a href="{{ url_for('recipe.add_recipe') }}" class="nav-link"><i class="fas fa-plus-circle"></i> הוסף
+                מתכון</a>
+            <a href="{{ url_for('statistics.show_statistics') }}" class="nav-link"><i class="fas fa-chart-bar"></i>
+                סטטיסטיקות</a>
+            {% if current_user.is_authenticated %}
+            <div class="dropdown">
+                <button id="userDropdown" class="dropbtn nav-link" onclick="toggleUserDropdown()">
+                    <i class="fas fa-user"></i> {{ current_user.username }}
+                </button>
+                <div id="userDropdownContent" class="dropdown-content">
+                    <a href="{{ url_for('recipe.my_recipes') }}"><i class="fas fa-book"></i> המתכונים שלי</a>
+                    <a href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> התנתק</a>
+                </div>
+            </div>
+            {% else %}
+            <a href="{{ url_for('auth.login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i> התחבר</a>
+            {% endif %}
+        </nav>
+
+        <div class="search-container">
+            <form class="search-form" method="GET" action="/" id="searchForm">
+                <div class="search-row">
+                    <input type="search" name="query" placeholder="חיפוש חופשי..." class="search-input"
+                        id="searchInput">
+                    <button type="button" class="filter-toggle" onclick="toggleFilters()">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+                <div class="filters-panel" id="filtersPanel">
+                    <div class="filters-content">
+                        <select name="dairy_type" class="filter-select" id="dairyTypeSelect">
+                            <option value="">כל סוגי המתכונים</option>
+                            <option value="בשרי">בשרי</option>
+                            <option value="חלבי">חלבי</option>
+                            <option value="פרווה">פרווה</option>
+                        </select>
+                        <select name="course_type" class="filter-select" id="courseTypeSelect">
+                            <option value="">כל סוגי המנות</option>
+                            <option value="מנה עיקרית">מנה עיקרית</option>
+                            <option value="מנה ראשונה">מנה ראשונה</option>
+                            <option value="קינוח">קינוח</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </header>
+    <div class="container mt-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+                <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+                <span class="message-content">{{ message }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>
