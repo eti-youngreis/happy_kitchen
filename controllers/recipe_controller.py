@@ -19,6 +19,9 @@ def home():
     recipes = get_recipes(search_query, dairy_type, course_type)
     return render_template("home.html", recipes=recipes)
 
+@recipe_bp.route("/about")
+def about():
+    return render_template("about.html")
 
 @recipe_bp.route("/<int:recipe_id>")
 def recipe(recipe_id):

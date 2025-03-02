@@ -161,7 +161,7 @@ body {
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .logo-icon {
@@ -496,8 +496,8 @@ body {
 
 @media (min-width: 1024px) {
     .main-header {
-        padding-right: 8rem;
-        padding-left: 8rem;
+        padding-right: 6rem;
+        padding-left: 6rem;
         flex-wrap: nowrap;
     }
 

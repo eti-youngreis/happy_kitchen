@@ -23,6 +23,7 @@
                 מתכון</a>
             <a href="{{ url_for('statistics.show_statistics') }}" class="nav-link"><i class="fas fa-chart-bar"></i>
                 סטטיסטיקות</a>
+            <a href="{{ url_for('recipe.about') }}" class="nav-link"><i class="fas fa-info-circle"></i> אודות</a>
             {% if current_user.is_authenticated %}
             <div class="dropdown">
                 <button id="userDropdown" class="dropbtn nav-link" onclick="toggleUserDropdown()">
