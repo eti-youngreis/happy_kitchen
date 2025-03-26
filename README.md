@@ -22,10 +22,6 @@
 - HTML/CSS
 - JavaScript
 
-## Project Status
-
-This project is currently in development. Features and functionality are being actively added and refined.
-
 ## Installation and Setup
 
 1. Make sure you have Python 3.7 or higher installed on your system.
